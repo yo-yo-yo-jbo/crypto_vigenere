@@ -13,3 +13,4 @@ The big advantage of `Playfair` (and other `digraph ciphers`) is that the distri
 ## The cipher
 The Vigenère cipher does something novel - instead of encrypting by a constant `n-gram` (3-letters etc.) it encrypts each letter with a letter from a different alphabet, derived by the encryption key. We could therefore classify that cipher as a `polyalphabetic substitution cipher` with a frequency that depends on the key length - which makes naive frequency analysis impractical.  
 Let's see an example. For that we will be using a `Tabula Recta` (also known as a `Vigenère square`, which is pretty self-explanatory:
+![Tabula Recta](tabula.png)
