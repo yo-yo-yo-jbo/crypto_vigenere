@@ -72,3 +72,11 @@ ANOTHERONEGOTCAUGHTTODAYITSALLOVERTHEPAPERSTEENAGERARRESTEDINCOMPUTERCRIMESCANDA
 ```
 
 This is the well known [Hacker's Manifesto](http://phrack.org/issues/7/3.html)!
+
+## Summary
+This blogpost introduced us to some new concepts, we've seen how Polyalphabetic ciphers make naive frequency analysis challenging, but are still vulnerable to statistical analysis.  
+In the next couple of blogposts on cryptography I intend to start discussing more modern cryptography - the Vigenère is by no means modern.  
+Nevertheless I still think there is merit in discussing those concepts in terms of "way of thinking" about advantages and disadvantages of ciphers.
+
+Stay tuned,
+Jonathan Bar Or
