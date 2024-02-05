@@ -31,3 +31,14 @@ def encrypt(plaintext, key):
     return ''.join([ chr(ord('A') + ((ord(uppers[i]) - ord('A') + ord(key[i % len(key)]) - ord('A')) % 26)) for i in range(len(uppers)) ])
 ```
 
+Note how simple the cipher is! The line that defines the `uppers` variable simply discards of all non-uppercase characters, but the essence of the algorithm lies within the `return` clause:
+1. We iterate the indices of the plaintext (`uppers` after filtering), each index is called `i`.
+2. We take the letter's index (e.g. `A` is `0`, `B` is `1` and so on) by substructing `ord('A')` from the plaintext letter, and add it to the `key`'s current letter index.
+3. Key is used cyclically so we use `key[i % len(key)]`.
+4. Since the addition from bullet (2) can exceed `25`, we use ` % 26` and then simply add `ord('A')` to it to make it a letter again.
+
+If you read this algorithm carefully you'd discover something interesting - this is exactly the `Caesar cipher` used for each key letter seperately!  
+For example, if the key length is 4, then the 1st, 5th, 9th (etc.) letters in the plaintext are going to simply be shifted by the same offset!  
+This is exactly the strength and weakness of the Vigenère cipher - simple frequency analysis fails (as the mapping strongly depends on the key length)... But it's trivial if we know the key length!
+
+## Breaking the cipher
