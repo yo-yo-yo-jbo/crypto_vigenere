@@ -14,3 +14,20 @@ The big advantage of `Playfair` (and other `digraph ciphers`) is that the distri
 The Vigenère cipher does something novel - instead of encrypting by a constant `n-gram` (3-letters etc.) it encrypts each letter with a letter from a different alphabet, derived by the encryption key. We could therefore classify that cipher as a `polyalphabetic substitution cipher` with a frequency that depends on the key length - which makes naive frequency analysis impractical.  
 Let's see an example. For that we will be using a `Tabula Recta` (also known as a `Vigenère square`, which is pretty self-explanatory:
 ![Tabula Recta](tabula.png)
+
+The idea is simple - let's say the first letter we'd like to encrypt is `D` and the first letter of the key is `Q`. We look at the Tabula Recta and see that for column `D` and row `Q` we get a `T`, so we add `T` to our ciphertext. The same idea goes on and on (e.g. 2nd plaintext letter is encrypted using table with the 2nd key letter as the row). Of course, the key might be way shorter than the plaintext, so we simply use the key in a cyclic fashion.  
+We can use modular arithmetic to simplify:
+
+```python
+import string
+
+def encrypt(plaintext, key):
+    """
+        Encrypts the plaintext (discarding any non-uppercase English letters).
+        This assumes the key is already all uppercase English letters.
+    """
+
+    uppers = [ c for c in plaintext if c in string.ascii_uppercase ]
+    return ''.join([ chr(ord('A') + ((ord(uppers[i]) - ord('A') + ord(key[i % len(key)]) - ord('A')) % 26)) for i in range(len(uppers)) ])
+```
+
