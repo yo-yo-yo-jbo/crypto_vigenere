@@ -78,5 +78,6 @@ This blogpost introduced us to some new concepts, we've seen how Polyalphabetic 
 In the next couple of blogposts on cryptography I intend to start discussing more modern cryptography - the Vigenère is by no means modern.  
 Nevertheless I still think there is merit in discussing those concepts in terms of "way of thinking" about advantages and disadvantages of ciphers.
 
-Stay tuned,  
-Jonathan Bar Or
+Stay tuned!
+
+Jonathan Bar Or (https://jonathanbaror.com)
